@@ -1,0 +1,30 @@
+version: '2.4'
+
+services:
+  security-echo-server:
+      container_name: secureapp
+      image: sahoobiswajit/secureapp:latest
+      ports:
+        - 9090:9090
+      networks:
+        - common-network
+      depends_on:
+       - keycloak
+  keycloak:
+      container_name: keycloak
+      image: jboss/keycloak:latest
+      environment:
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: admin
+      volumes:
+      - ./imports:/opt/jboss/keycloak/imports
+      command: 
+      - "-b 0.0.0.0 -Dkeycloak.import=/opt/jboss/keycloak/imports/realm-export.json"
+      ports:
+        - 8080:8080
+      networks:
+        - common-network
+        
+networks:
+  common-network:
+    driver: bridge

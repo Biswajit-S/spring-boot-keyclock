@@ -1,3 +1,7 @@
+/**
+ * Base class to start the spring boot application.
+ */
+
 package com.example.microbot.SecureApp;
 
 import org.springframework.boot.SpringApplication;
