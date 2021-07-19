@@ -1,6 +1,10 @@
 # spring-boot-keyclock
 This appliacation demonstrates a Spring-boot application integrated with Keycloak. The spring boot APIs are protected with OAuth2 and Keycloak acts as the authorization server.
 
+## Pre-requisite
+* Keycloak realm export by default does not export the user account. For simplicity of this application the scripts to export the user account in the realm has not been included.
+* So a test user account needs to be created first in Keycloak, before testing these API.
+
 # API Specification
 
 ## Getting Tokens
